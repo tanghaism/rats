@@ -1,0 +1,153 @@
+$success: #4caf50;
+$warning: #ffb300;
+$info: #909399;
+$disabled: rgba(0, 0, 0, 0.25);
+$dark-disabled: rgba(255, 255, 255, 0.3);
+$background-disabled: #f5f5f5;
+$dark-background-disabled: rgba(255, 255, 255, 0.08);
+$border-disabled: #d9d9d9;
+$dark-border-disabled: #434343;
+
+.rats-px-0 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@mixin RatsButtonLink($color, $isDark) {
+  color: $color;
+  &:hover,
+  &:active,
+  &:focus {
+    color: if($isDark, darken($color, 10%), lighten($color, 15%));
+  }
+  &[disabled] {
+    color: if($isDark, $dark-disabled, $disabled);
+    background-color: transparent;
+  }
+}
+
+.ant-btn-link.rats-btn-success,
+.ant-btn-text.rats-btn-success {
+  @include RatsButtonLink($success, false);
+}
+.ant-btn-link.rats-btn-warning,
+.ant-btn-text.rats-btn-warning {
+  @include RatsButtonLink($warning, false);
+}
+.ant-btn-link.rats-btn-info,
+.ant-btn-text.rats-btn-info {
+  @include RatsButtonLink($info, false);
+}
+
+[rats-mode='dark'] .ant-btn-link.rats-btn-success,
+[rats-mode='dark'] .ant-btn-text.rats-btn-success {
+  @include RatsButtonLink(darken($success, 10%), true);
+}
+
+[rats-mode='dark'] .ant-btn-link.rats-btn-warning,
+[rats-mode='dark'] .ant-btn-text.rats-btn-warning {
+  @include RatsButtonLink(darken($warning, 10%), true);
+}
+
+[rats-mode='dark'] .ant-btn-link.rats-btn-info,
+[rats-mode='dark'] .ant-btn-text.rats-btn-info {
+  @include RatsButtonLink(darken($info, 10%), true);
+}
+
+@mixin RatsButtonPrimary($color, $isDark) {
+  background-color: $color;
+  border-color: $color;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: if($isDark, darken($color, 10%), lighten($color, 15%));
+    border-color: if($isDark, darken($color, 10%), lighten($color, 15%));
+  }
+}
+
+@mixin RatsButtonDisabled($isDark) {
+  &[disabled] {
+    background-color: if(
+        $isDark,
+        $dark-background-disabled,
+        $background-disabled
+    );
+    color: if($isDark, $dark-disabled, $disabled);
+    border-color: if($isDark, $dark-border-disabled, $border-disabled);
+  }
+}
+
+.ant-btn-primary.rats-btn-success {
+  @include RatsButtonPrimary($success, false);
+  @include RatsButtonDisabled(false);
+}
+.ant-btn-primary.rats-btn-warning {
+  @include RatsButtonPrimary($warning, false);
+  @include RatsButtonDisabled(false);
+}
+.ant-btn-primary.rats-btn-info {
+  @include RatsButtonPrimary($info, false);
+  @include RatsButtonDisabled(false);
+}
+
+[rats-mode='dark'] .ant-btn-primary.rats-btn-success {
+  @include RatsButtonPrimary(darken($success, 10%), true);
+  @include RatsButtonDisabled(true);
+}
+[rats-mode='dark'] .ant-btn-primary.rats-btn-warning {
+  @include RatsButtonPrimary(darken($warning, 10%), true);
+  @include RatsButtonDisabled(true);
+}
+[rats-mode='dark'] .ant-btn-primary.rats-btn-info {
+  @include RatsButtonPrimary(darken($info, 10%), true);
+  @include RatsButtonDisabled(true);
+}
+
+@mixin RatsButtonGhost($color, $isDark) {
+  color: $color;
+  border-color: $color;
+  &:hover,
+  &:active,
+  &:focus {
+    color: if($isDark, darken($color, 10%), lighten($color, 15%));
+    border-color: if($isDark, darken($color, 10%), lighten($color, 15%));
+  }
+}
+
+.ant-btn-ghost.rats-btn-success,
+.ant-btn-dashed.rats-btn-success,
+.ant-btn-default.rats-btn-success {
+  @include RatsButtonGhost($success, false);
+  @include RatsButtonDisabled(false);
+}
+.ant-btn-ghost.rats-btn-warning,
+.ant-btn-dashed.rats-btn-warning,
+.ant-btn-default.rats-btn-warning {
+  @include RatsButtonGhost($warning, false);
+  @include RatsButtonDisabled(false);
+}
+.ant-btn-ghost.rats-btn-info,
+.ant-btn-dashed.rats-btn-info,
+.ant-btn-default.rats-btn-info {
+  @include RatsButtonGhost($info, false);
+  @include RatsButtonDisabled(false);
+}
+
+[rats-mode='dark'] .ant-btn-ghost.rats-btn-success,
+[rats-mode='dark'] .ant-btn-dashed.rats-btn-success,
+[rats-mode='dark'] .ant-btn-default.rats-btn-success {
+  @include RatsButtonGhost($success, true);
+  @include RatsButtonDisabled(true);
+}
+[rats-mode='dark'] .ant-btn-ghost.rats-btn-warning,
+[rats-mode='dark'] .ant-btn-dashed.rats-btn-warning,
+[rats-mode='dark'] .ant-btn-default.rats-btn-warning {
+  @include RatsButtonGhost($warning, true);
+  @include RatsButtonDisabled(true);
+}
+[rats-mode='dark'] .ant-btn-ghost.rats-btn-info,
+[rats-mode='dark'] .ant-btn-dashed.rats-btn-info,
+[rats-mode='dark'] .ant-btn-default.rats-btn-info {
+  @include RatsButtonGhost($info, true);
+  @include RatsButtonDisabled(true);
+}
