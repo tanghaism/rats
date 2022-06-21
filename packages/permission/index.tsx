@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { PermissionContext } from '../provider';
+import { PermissionContext } from '../utils/context';
 import type { IProps, type } from './index.d';
 
 // @param permission: 需要校验的权限点，可传入单一权限或多个权限

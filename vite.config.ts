@@ -49,14 +49,14 @@ export default defineConfig((config: any) => {
     plugins: getPlugin(config.mode),
     resolve: {
       alias: {
-        '@': resolve('./package'),
+        '@': resolve('./packages'),
       },
     },
     build: {
       sourcemap: false,
       cssCodeSplit: false,
       lib: {
-        entry: resolve(__dirname, 'package/index.ts'),
+        entry: resolve(__dirname, 'packages/index.ts'),
         name: 'Rats',
         formats: ['umd'],
         fileName: 'index',

@@ -1,0 +1,36 @@
+.rats-flex {
+  display: flex;
+  align-items: center;
+  &-column {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+  &-1 {
+    flex: 1;
+  }
+}
+
+.rats-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rats-layout-transition {
+  transition: width 0.2s;
+}
+
+.rats-block {
+  display: block;
+}
+
+.iconfont.anticon {
+  vertical-align: inherit;
+  &::before {
+    display: inline-block !important;
+  }
+}
+
+@import "dark";
+@import "antd";

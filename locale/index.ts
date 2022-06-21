@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
-import ZH from './lang/zh';
+import { useEffect, useState } from 'react';
+
 import EN from './lang/en';
 import JA from './lang/ja';
+import ZH from './lang/zh';
 
 export type Lang = 'zh-cn' | 'en' | 'ja' | string;
 
@@ -36,11 +37,11 @@ export function useI18n(lang: Lang) {
 }
 
 export function getI18nText(
-  globalEASILocale: IGlobalLocal,
+  globalRatsLocale: IGlobalLocal,
   key: string,
   value?: { [props: string]: string | number },
 ) {
-  let message = globalEASILocale?.message[key];
+  let message = globalRatsLocale?.message[key];
   if (message) {
     if (value) {
       const reg = /(\{).*?(\})/g;
